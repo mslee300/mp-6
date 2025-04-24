@@ -1,6 +1,8 @@
 'use client'
 import { useSearchParams } from 'next/navigation'
 import { useState, useEffect } from 'react'
+import Image from 'next/image'
+import Link from 'next/link'
 
 type Profile = {
   name: string
@@ -40,10 +42,12 @@ export default function CallbackPage() {
       <div className="bg-white rounded-2xl shadow-lg p-6 max-w-md w-full">
         <h2 className="text-xl font-bold mb-4">Your Information</h2>
         <div className="flex items-center">
-          <img
+          <Image
             src={profile.picture}
             alt={profile.name}
-            className="w-24 h-24 rounded-full mr-6"
+            width={96}
+            height={96}
+            className="rounded-full mr-6"
           />
           <div>
             <p className="font-bold text-lg">{profile.name}</p>
@@ -52,12 +56,12 @@ export default function CallbackPage() {
             <p className="mt-2 text-sm text-gray-500">Signed in with: Google</p>
           </div>
         </div>
-        <a
+        <Link
           href="/"
           className="mt-6 inline-block px-4 py-2 bg-teal-500 hover:bg-teal-600 text-white rounded-lg"
         >
           Sign out
-        </a>
+        </Link>
       </div>
     </div>
   )
